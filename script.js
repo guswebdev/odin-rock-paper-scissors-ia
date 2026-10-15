@@ -15,4 +15,11 @@ const getComputerChoice = () => {
 
 }
 
-console.log(getComputerChoice());
+const getHumanChoice = () => {
+    let mano = prompt("Ingrese su jugada: (rock, paper, scissors)")
+
+    console.log(`HUMAN: ${mano.toLowerCase()}`)
+}
+
+console.log(`COMPUTER: ${getComputerChoice()}`);
+getHumanChoice();
