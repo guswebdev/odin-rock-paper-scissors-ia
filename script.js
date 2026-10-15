@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 const getComputerChoice = () => {
 
     const numeroAleatorio = Math.floor((Math.random() * (2 - 0 + 1) + 0));
@@ -18,8 +21,26 @@ const getComputerChoice = () => {
 const getHumanChoice = () => {
     let mano = prompt("Ingrese su jugada: (rock, paper, scissors)")
 
-    console.log(`HUMAN: ${mano.toLowerCase()}`)
+    return mano.toLowerCase();
 }
 
-console.log(`COMPUTER: ${getComputerChoice()}`);
-getHumanChoice();
+const playRound = (humanChoice, computerChoice) => {
+    console.log(`HUMAN: ${humanChoice}`);
+    console.log(`COMPUTER: ${computerChoice}`);
+
+    if (humanChoice === computerChoice) {
+        console.log(`It's a tie! ${humanChoice} equals ${computerChoice}`)
+    } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
+        console.log(`You won! ${humanChoice} ties with ${computerChoice}`)
+        humanScore++;
+    } else if (computerChoice === "rock" && humanChoice === "scissors" || computerChoice === "paper" && humanChoice === "rock" || computerChoice === "scissors" && humanChoice === "paper") {
+        console.log(`You lost! ${computerChoice} ties with ${humanChoice}`)
+        computerScore++;
+    }
+
+    console.log(humanScore)
+    console.log(computerScore)
+}
+
+playRound(getHumanChoice(), getComputerChoice());
+
