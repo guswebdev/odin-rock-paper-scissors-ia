@@ -42,5 +42,19 @@ const playRound = (humanChoice, computerChoice) => {
     console.log(computerScore)
 }
 
-playRound(getHumanChoice(), getComputerChoice());
+const playGame = () => {
+    for (let i = 0; i < 5; i++) {
+        playRound(getHumanChoice(), getComputerChoice());
+    }
 
+    if (humanScore === computerScore) {
+        console.log("Draw")
+    } else if (humanScore > computerScore) {
+        console.log("You won.")
+    } else {
+        console.log("You lost.")
+    }
+}
+
+
+playGame();
