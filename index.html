@@ -9,30 +9,43 @@
 </head>
 
 <body>
-    <header>
+    <header class="header">
         <div class="container">
             <h1>Rock, Paper, Scissors</h1>
         </div>
     </header>
     <main>
         <section class="btns">
-            <div class="container">
-                <button id="btn-rock" class="btn-btn-rock">rock</button>
-                <button id="btn-paper" class="btn-btn-paper">paper</button>
-                <button id="btn-scissors" class="btn-btn-scissors">scissors</button>
-            </div>
+            <button id="btn-rock" class="btn btn-rock">rock</button>
+            <button id="btn-paper" class="btn btn-paper">paper</button>
+            <button id="btn-scissors" class="btn btn-scissors">scissors</button>
         </section>
         <section class="info">
-            <div class="container">
-                <p>Round: <span>2</span></p>
-                <p>Result: <span>Message Result Round</span></p>
-                <article>
-                    <p>Human Score: <span>3</span></p>
-                    <p>Computer Score: <span>2</span></p>
-                </article>
+            <div class="info-round">
+                <p>Round</p>
+                <span>0</span>
             </div>
+            <div class="info-result">
+                <p>Result</p>
+                <span>Message Result Round</span>
+            </div>
+            <article class="container-score">
+                <div>
+                    <p>Human<br>Score</p>
+                    <span>0</span>
+                </div>
+                <div>
+                    <p>Computer<br>Score</p>
+                    <span>0</span>
+                </div>
+            </article>
         </section>
     </main>
+    <footer class="footer">
+        <div class="container">
+            <p>Created by <span><a href="#">Gustavo Miño</a></span></p>
+        </div>
+    </footer>
     <script src="script.js" defer></script>
 </body>
 

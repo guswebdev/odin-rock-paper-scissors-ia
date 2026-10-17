@@ -1,0 +1,99 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.header,
+.footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.btns {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #222;
+    color: #fff;
+    padding: .5rem 1rem;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #fff;
+    color: #222;
+}
+
+.info {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+}
+
+.info article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-score div {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-align: center;
+}
+
+.container-score span {
+    font-size: 32px;
+}
+
+.info-result span,
+.info-round span {
+    font-size: 24px;
+}
+
+.info-result p,
+.info-round p {
+    margin-bottom: .5rem;
+}
