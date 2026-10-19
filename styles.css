@@ -65,7 +65,7 @@ main {
 }
 
 .info {
-    min-width: 250px;
+    width: 300px;
     max-width: 300px;
     display: flex;
     flex-direction: column;
@@ -83,18 +83,30 @@ main {
     flex-direction: column;
     gap: .5rem;
     text-align: center;
+    flex-basis: 35% ;
 }
 
 .container-score span {
-    font-size: 32px;
+    font-size: 24px;
 }
 
 .info-result span,
 .info-round span {
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .info-result p,
 .info-round p {
     margin-bottom: .5rem;
+}
+
+.btn-reset {
+    display: none;
+}
+
+.footer a {
+    color: white;
+}
+.footer a:hover {
+    color: gray;
 }

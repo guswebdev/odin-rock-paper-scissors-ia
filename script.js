@@ -1,6 +1,19 @@
 let humanScore = 0;
 let computerScore = 0;
-let roundContador = 0;
+
+const d = document;
+
+const $btnRock = d.querySelector("#btn-rock");
+const $btnPaper = d.querySelector("#btn-paper");
+const $btnScissors = d.querySelector("#btn-scissors");
+const $btnsJuego = d.querySelector(".btns");
+const $btnReset = d.querySelector(".btn-reset");
+const $roundResult = d.querySelector(".round-result");
+const $humanScore = d.querySelector(".human-score");
+const $computerScore = d.querySelector(".computer-score");
+const $humanChoice = d.querySelector(".human-choice");
+const $computerChoice = d.querySelector(".computer-choice");
+const $matchResult = d.querySelector(".match-result");
 
 const getComputerChoice = () => {
 
@@ -24,12 +37,9 @@ const getComputerChoice = () => {
 }
 
 const playRound = (humanChoice, computerChoice) => {
-    
-    roundContador++;
 
     let result = ""
 
-    $roundContador.textContent = roundContador;
     $humanChoice.textContent = humanChoice;
     $computerChoice.textContent = computerChoice;
 
@@ -49,38 +59,45 @@ const playRound = (humanChoice, computerChoice) => {
     return result;
 }
 
-const playGame = () => {
-    for (let i = 0; i < 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
-    }
+const playGame = (humanChoice) => {
 
-    if (humanScore === computerScore) {
-        console.log("Draw")
-    } else if (humanScore > computerScore) {
-        console.log("You won.")
-    } else {
-        console.log("You lost.")
+    playRound(humanChoice, getComputerChoice())
+
+    if (humanScore === 5 || computerScore === 5) {
+        (humanScore > computerScore) ? $matchResult.textContent = "You won." : $matchResult.textContent = "You lost.";
+
+        $btnsJuego.style.display = "none";
+        $btnReset.style.display = "inline-block"
     }
 }
 
-const d = document;
+const playReset = () => {
+    
+    humanScore = 0;
+    computerScore = 0;
+    $humanChoice.textContent = "-";
+    $computerChoice.textContent = "-";
+    $humanScore.textContent = "-";
+    $computerScore.textContent = "-";
+    $roundResult.textContent = "-"
+    $matchResult.textContent = "-"
 
-const $btnRock = d.querySelector("#btn-rock");
-const $btnPaper = d.querySelector("#btn-paper");
-const $btnScissors = d.querySelector("#btn-scissors");
-const $roundContador = d.querySelector(".round-contador");
-const $roundResult = d.querySelector(".round-result");
-const $humanScore = d.querySelector(".human-score");
-const $computerScore = d.querySelector(".computer-score");
-const $humanChoice = d.querySelector(".human-choice");
-const $computerChoice = d.querySelector(".computer-choice");
-const $matchResult = d.querySelector(".match-result");
+    $btnsJuego.style.display = "flex";
+    $btnReset.style.display = "none"
+}
 
 const handleClick = (e) => {
-    playRound(e.target.value, getComputerChoice())
+
+    const botonJuego = e.target.closest('.btn-rock, .btn-paper, .btn-scissors');
+    const botonReset = e.target.closest('.btn-reset');
+
+    if (botonJuego) {
+        playGame(e.target.value)
+    }
+
+    if (botonReset) {
+        playReset()
+    }
 }
 
 d.addEventListener("click", handleClick)
-
-
-//playGame();
