@@ -3,15 +3,19 @@ let computerScore = 0;
 
 const getComputerChoice = () => {
 
-    const numeroAleatorio = Math.floor((Math.random() * (2 - 0 + 1) + 0));
     let mano;
+    const numeroAleatorio = Math.floor((Math.random() * (2 - 0 + 1) + 0));
 
-    if (numeroAleatorio === 0) {
-        mano = "rock"
-    } else if (numeroAleatorio === 1) {
-        mano = "paper"
-    } else if (numeroAleatorio === 2) {
-        mano = "scissors"
+    switch (numeroAleatorio) {
+        case 0:
+            mano = "rock";
+            break;
+        case 1:
+            mano = "paper";
+            break;
+        case 2:
+            mano = "scissors";
+            break;
     }
 
     return mano;
@@ -56,5 +60,17 @@ const playGame = () => {
     }
 }
 
+const d = document;
 
+const $btnRock = d.querySelector("#btn-rock");
+const $btnPaper = d.querySelector("#btn-paper");
+const $btnScissors = d.querySelector("#btn-scissors");
+
+const handleClick = (e) => {
+    //console.log(e)
+    console.log(e.target.value)
+
+}
+
+d.addEventListener("click", handleClick)
 //playGame();
