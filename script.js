@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let roundContador = 0;
 
 const getComputerChoice = () => {
 
@@ -22,28 +23,30 @@ const getComputerChoice = () => {
 
 }
 
-const getHumanChoice = () => {
-    let mano = prompt("Ingrese su jugada: (rock, paper, scissors)")
-
-    return mano.toLowerCase();
-}
-
 const playRound = (humanChoice, computerChoice) => {
-    console.log(`HUMAN: ${humanChoice}`);
-    console.log(`COMPUTER: ${computerChoice}`);
+    
+    roundContador++;
+
+    let result = ""
+
+    $roundContador.textContent = roundContador;
+    $humanChoice.textContent = humanChoice;
+    $computerChoice.textContent = computerChoice;
 
     if (humanChoice === computerChoice) {
-        console.log(`It's a tie! ${humanChoice} equals ${computerChoice}`)
+        result = `It's a tie! ${humanChoice} equals ${computerChoice}`;
     } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
-        console.log(`You won! ${humanChoice} ties with ${computerChoice}`)
         humanScore++;
+        result = `You won! ${humanChoice} ties with ${computerChoice}`;
     } else if (computerChoice === "rock" && humanChoice === "scissors" || computerChoice === "paper" && humanChoice === "rock" || computerChoice === "scissors" && humanChoice === "paper") {
-        console.log(`You lost! ${computerChoice} ties with ${humanChoice}`)
         computerScore++;
+        result = `You lost! ${computerChoice} ties with ${humanChoice}`
     }
 
-    console.log(humanScore)
-    console.log(computerScore)
+    $roundResult.textContent = result;
+    $humanScore.textContent = humanScore;
+    $computerScore.textContent = computerScore;
+    return result;
 }
 
 const playGame = () => {
@@ -65,12 +68,19 @@ const d = document;
 const $btnRock = d.querySelector("#btn-rock");
 const $btnPaper = d.querySelector("#btn-paper");
 const $btnScissors = d.querySelector("#btn-scissors");
+const $roundContador = d.querySelector(".round-contador");
+const $roundResult = d.querySelector(".round-result");
+const $humanScore = d.querySelector(".human-score");
+const $computerScore = d.querySelector(".computer-score");
+const $humanChoice = d.querySelector(".human-choice");
+const $computerChoice = d.querySelector(".computer-choice");
+const $matchResult = d.querySelector(".match-result");
 
 const handleClick = (e) => {
-    //console.log(e)
-    console.log(e.target.value)
-
+    playRound(e.target.value, getComputerChoice())
 }
 
 d.addEventListener("click", handleClick)
+
+
 //playGame();
